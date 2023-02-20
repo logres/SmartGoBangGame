@@ -3,7 +3,6 @@ from web3 import Web3
 import json
 import os
 import dotenv
-import time
 
 dotenv.load_dotenv()
 
@@ -22,7 +21,7 @@ class Game:
 
         self.w3 = Web3(Web3.HTTPProvider(os.getenv('Web3Provider')))
         contract_address = Web3.toChecksumAddress(os.getenv('Contract_Address'))
-        contract_abi = json.load(open("Gobang.json"))['abi']
+        contract_abi = json.load(open(".\Gobang.json"))['abi']
         self.contract = self.w3.eth.contract(address=contract_address, abi=contract_abi)
 
     def web3_play(self, x, y):
